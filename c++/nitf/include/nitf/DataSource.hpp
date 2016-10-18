@@ -45,6 +45,7 @@ public:
     //! Copy constructor
     DataSource(const DataSource & x)
     {
+        std::cerr << "Copy ctor DataSource!\n";
         setNative(x.getNative());
     }
 
