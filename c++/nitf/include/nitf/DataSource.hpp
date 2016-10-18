@@ -66,6 +66,7 @@ public:
 
     DataSource()
     {
+        std::cerr << "Default ctor DataSource!\n";
     }
 
     //! Destructor
