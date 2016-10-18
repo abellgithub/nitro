@@ -131,7 +131,7 @@ public:
      * \param flag  if flag is true, the underlying library will adopt and manage the memory
      *              if flag is false, the memory can be freed when refcount == 0
      */
-    void setManaged(bool flag)
+    virtual void setManaged(bool flag)
     {
         if (isValid())
             mHandle->setManaged(flag);

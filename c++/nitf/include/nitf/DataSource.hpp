@@ -92,6 +92,15 @@ public:
 
     void setSize(nitf::Off size);
 
+    virtual void setManaged(bool flag)
+    {
+	std::cerr << "+DataSource::setManaged(" << flag << ")!\n";
+        dumpManaged();
+        if (isValid())
+            mHandle->setManaged(flag);
+	dumpManaged();
+	std::cerr << "-DataSource::setManaged(" << flag << ")!\n";
+    }
 protected:
     nitf_Error error;
 };
