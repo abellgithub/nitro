@@ -137,6 +137,15 @@ public:
             mHandle->setManaged(flag);
     }
 
+public:
+    void dumpManaged()
+    {
+        if (!isValid())
+            std::cerr << "DumpManaged: " << this << ": INVALID!\n";
+        else
+            std::cerr << "DumpManaged: " << this << ": " << mHandle->managed << "!\n";
+    }
+
     std::string toString() const
     {
         return getObjectID();

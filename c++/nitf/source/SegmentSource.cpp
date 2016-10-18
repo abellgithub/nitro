@@ -28,6 +28,7 @@ nitf::SegmentMemorySource::SegmentMemorySource(const char * data, size_t size,
     setNative(nitf_SegmentMemorySource_construct(data, size, start, byteSkip,
     		                                     copyData, &error));
     setManaged(false);
+    dumpManaged();
 }
 
 nitf::SegmentFileSource::SegmentFileSource(nitf::IOHandle & io,

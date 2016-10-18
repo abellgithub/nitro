@@ -97,6 +97,7 @@ class DLL_PUBLIC_CLASS BoundHandle : public Handle
 {
 private:
     Class_T* handle;
+public:
     int managed;
 
 public:
