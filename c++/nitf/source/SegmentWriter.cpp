@@ -50,6 +50,7 @@ SegmentWriter::~SegmentWriter()
 void SegmentWriter::attachSource(nitf::SegmentSource segmentSource)
         throw (nitf::NITFException)
 {
+    std::cerr << "Attaching segment source!\n";
     if (!nitf_SegmentWriter_attachSource(getNativeOrThrow(),
                                          segmentSource.getNative(), &error))
         throw nitf::NITFException(&error);
