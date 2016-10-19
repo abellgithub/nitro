@@ -147,6 +147,7 @@ T& Singleton<T, AutoDestroy>::getInstance()
             mInstance = new T; //create the instance
             std::cerr << "*** Made singleton " << typeid(T).name() << " = " <<
                 mInstance << "!\n";
+            std::cerr << "*** mInstance addr = " << &mInstance << "!\n";
             SingletonAutoDestroyer<AutoDestroy>::registerAtExit(destroy);
         }
     }
