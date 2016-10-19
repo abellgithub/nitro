@@ -61,15 +61,15 @@ public:
             BoundHandle<T, DestructFunctor_T>* handle =
                 new BoundHandle<T, DestructFunctor_T>(object);
             mHandleMap[object] = handle;
-            std::cerr << "Object not found - making new handle obj/handle = " <<
-                object << "/" << handle << "!\n";
+            std::cerr << "Object not found - making new handle map/obj/handle = " <<
+                &mHandleMap << "/" << object << "/" << handle << "!\n";
         }
         else
         {
         BoundHandle<T, DestructFunctor_T>* h =
             (BoundHandle<T, DestructFunctor_T>*)mHandleMap[object];
-            std::cerr << "Object found - existing handle obj/handle = " <<
-                object << "/" << h << "!\n";
+            std::cerr << "Object found - existing handle map/obj/handle = " <<
+                &mHandleMap << "/" << object << "/" << h << "!\n";
         }
         BoundHandle<T, DestructFunctor_T>* handle =
             (BoundHandle<T, DestructFunctor_T>*)mHandleMap[object];
