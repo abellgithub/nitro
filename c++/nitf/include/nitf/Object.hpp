@@ -67,6 +67,7 @@ protected:
         {
             releaseHandle();
             mHandle = HandleRegistry::getInstance().template acquireHandle<T, DestructFunctor_T>(nativeObj);
+            std::cerr << "Set handle = " << mHandle << "!\n";
         }
     }
 
