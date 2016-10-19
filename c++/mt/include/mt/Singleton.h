@@ -97,7 +97,7 @@ template <> struct SingletonAutoDestroyer<true>
 };
 
 template<typename T, bool AutoDestroy = false>
-class Singleton
+class __attribute__((visibility("default"))) Singleton
 {
 public:
     /*!
