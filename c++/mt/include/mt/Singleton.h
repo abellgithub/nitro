@@ -20,6 +20,7 @@
  *
  */
 
+#include <typeinfo>
 
 #ifndef __MT_SINGLETON_H__
 #define __MT_SINGLETON_H__
@@ -116,11 +117,16 @@ protected:
     //! Constructor
     inline explicit Singleton()
     {
+        std::cerr << "### Creating singleton!\n";
         assert(mInstance == 0);
         mInstance = static_cast<T*>(this);
     }
     //! Destructor
-    inline ~Singleton() { mInstance = 0; }
+    inline ~Singleton()
+    {
+        std::cerr << "### Destroying singleton!\n";
+        mInstance = 0;
+    }
 
 private:
     static T* mInstance; //static instance
@@ -139,6 +145,8 @@ T& Singleton<T, AutoDestroy>::getInstance()
         if (mInstance == 0)
         {
             mInstance = new T; //create the instance
+            std::cerr << "*** Made singleton " << typeid(T).name() << " = " <<
+                mInstance << "!\n";
             SingletonAutoDestroyer<AutoDestroy>::registerAtExit(destroy);
         }
     }

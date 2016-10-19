@@ -67,7 +67,6 @@ protected:
         {
             releaseHandle();
             mHandle = HandleRegistry::getInstance().template acquireHandle<T, DestructFunctor_T>(nativeObj);
-            std::cerr << "Set handle = " << mHandle << "!\n";
         }
     }
 
@@ -141,10 +140,12 @@ public:
 public:
     void dumpManaged()
     {
+        /**
         if (!isValid())
             std::cerr << "DumpManaged: " << this << ": INVALID!\n";
         else
             std::cerr << "DumpManaged: " << this << ": " << mHandle->managed << "!\n";
+        **/
     }
 
     std::string toString() const
