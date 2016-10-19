@@ -58,10 +58,13 @@ public:
         mt::CriticalSection<sys::Mutex> obtainLock(&mMutex);
         if (mHandleMap.find(object) == mHandleMap.end())
         {
+            std::cerr << "Object not found - making new handle!\n";
             BoundHandle<T, DestructFunctor_T>* handle =
                 new BoundHandle<T, DestructFunctor_T>(object);
             mHandleMap[object] = handle;
         }
+        else
+            std::cerr << "Object found - existing handle!\n";
         BoundHandle<T, DestructFunctor_T>* handle =
             (BoundHandle<T, DestructFunctor_T>*)mHandleMap[object];
         obtainLock.manualUnlock();
